@@ -77,10 +77,10 @@
 
       .rate {
         display: flex;
-        list-style: none;
         justify-content: space-between;
         padding: 0;
         margin: 1.5rem auto;
+        width: 100%;
       }
 
       .rate input {
@@ -126,10 +126,8 @@
         color: hsl(25, 97%, 53%);
         background-color: hsl(0, 0%, 100%);
       }
+      #selected,
       .selected {
-        display: none;
-        /* display: flex; */
-        flex-direction: column;
         align-items: center;
         justify-content: center;
       }
@@ -149,42 +147,47 @@
         text-align: center;
       }
 
-      .card-rate {
-        /* display: none; */
+      .off {
+        display: none;
+      }
+
+      .on {
+        display: flex;
+        flex-direction: column;
       }
     </style>
   </head>
   <body>
     <!-- Rating state start -->
     <div class="wrapper">
-      <div class="card card-rate">
-        <form class="card-rate">
-          <div class="pic"></div>
-          <h1>How did we do?</h1>
-          <p>
-            Please let us know how we did with your support request. All
-            feedback is appreciated to help us improve our offering!
-          </p>
-          <div class="rate">
-            <input type="radio" name="rate" id="rate1" value="1" />
-            <label for="rate1">1</label>
-            <input type="radio" name="rate" id="rate2" value="2" />
-            <label for="rate2">2</label>
-            <input type="radio" name="rate" id="rate3" value="3" />
-            <label for="rate3">3</label>
-            <input type="radio" name="rate" id="rate4" value="4" />
-            <label for="rate4">4</label>
-            <input type="radio" name="rate" id="rate5" value="5" />
-            <label for="rate5">5</label>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+      <div class="on card" id="card-rate">
+        <!-- <form> -->
+        <div class="pic"></div>
+        <h1>How did we do?</h1>
+        <p>
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+        <div class="rate">
+          <input type="radio" name="rate" id="rate1" value="1" />
+          <label for="rate1">1</label>
+          <input type="radio" name="rate" id="rate2" value="2" />
+          <label for="rate2">2</label>
+          <input type="radio" name="rate" id="rate3" value="3" />
+          <label for="rate3">3</label>
+          <input type="radio" name="rate" id="rate4" value="4" />
+          <label for="rate4">4</label>
+          <input type="radio" name="rate" id="rate5" value="5" />
+          <label for="rate5">5</label>
+        </div>
+        <button type="button" id="submit">Submit</button>
+        <!-- </form> -->
       </div>
       <!-- Rating state end -->
 
       <!-- Thank you state start -->
-      <div class="selected card">
-        <img src="/images/illustration-thank-you.svg" alt="" />
+      <div class="off card selected" id="selected">
+        <img src="images/illustration-thank-you.svg" alt="" />
         <div class="outof5">
           You selected <span id="choosen-score">0</span> out of 5
         </div>
@@ -205,4 +208,5 @@
       </div>
     </div>
   </body>
+  <script src="app.js"></script>
 </html>
